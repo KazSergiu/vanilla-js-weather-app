@@ -1,0 +1,382 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background-image: url("../../src/img/Thunderstorm.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  backdrop-filter: blur(0.8rem);
+}
+
+main {
+  display: flex;
+  background-image: url("../../src/img/Thunderstorm.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  min-height: 40vh;
+  width: 80%;
+}
+
+main .weatherDescription {
+  margin-left: auto;
+}
+
+/* displayImg  START */
+.displayImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 60%;
+  position: absolute;
+}
+
+.displayImg .textContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 15rem;
+}
+
+.displayImg .textContainer .blockDisplay {
+  text-align: center;
+}
+
+.displayImg .textContainer .temperature {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.displayImg .textContainer .city {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.displayImg .textContainer .date {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.displayImg .textContainer .blockDisplay img {
+  width: 100%;
+  height: auto;
+  margin-top: -3rem;
+}
+
+.displayImg .textContainer .blockDisplay .sky {
+  margin-top: -1rem;
+}
+
+.displayImg .textContainer p {
+  margin: 0 0.5rem;
+}
+/* displayImg  END */
+
+/* Loading state START */
+.displayImg .loadingState {
+  color: white;
+  position: relative;
+  margin-top: 15rem;
+}
+
+.loadingState {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.loadingState:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Loading state END */
+
+/* Animation START */
+.displayImg .textContainer {
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* Animation END */
+
+/* weatherDescription START */
+.weatherDescription {
+  height: 100%;
+  width: 40%;
+  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  z-index: 2;
+  backdrop-filter: blur(0.5rem);
+}
+
+.weatherDescription .descriptionContainer {
+  margin: 2rem;
+}
+.weatherDescription .descriptionContainer p {
+  margin: 0.7rem;
+  color: #444343;
+}
+
+.weatherDescription .descriptionContainer .searchHr {
+  width: 80%;
+}
+
+.weatherDescription .descriptionContainer input {
+  border: none;
+  outline: none;
+  height: 2.4rem;
+  width: 80%;
+  font-size: 1.3rem;
+  text-align: center;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  text-transform: capitalize;
+}
+
+.weatherDescription .descriptionContainer input::placeholder {
+  text-align: center;
+}
+
+.weatherDescription .descriptionContainer input:focus::placeholder {
+  color: transparent;
+}
+
+.weatherDescription .descriptionContainer hr {
+  background-color: #444343;
+  padding: 1px;
+  border: none;
+  opacity: 0.8;
+  margin: 0.5rem 0;
+}
+
+.weatherDescription .descriptionContainer h4 {
+  font-weight: bold;
+}
+
+.weatherDescription .descriptionContainer .searchBtn {
+  border: none;
+  outline: none;
+  padding: 1.65rem;
+  position: absolute;
+  cursor: pointer;
+  top: 0px;
+  right: 0px;
+}
+
+.color {
+  background-color: orange;
+}
+
+.weatherDescription .descriptionContainer .searchBtn i {
+  color: black;
+}
+
+.weatherDescription .descriptionContainer .cities p:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.weatherDescription .descriptionContainer .weatherDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 20vh;
+}
+
+.weatherDescription .descriptionContainer .weatherDetails span {
+  float: right;
+  color: white;
+}
+
+.weatherDescription .descriptionContainer .nextDays {
+  min-height: 30vh;
+}
+
+.weatherDescription .descriptionContainer .nextDays p:hover {
+  color: white;
+  cursor: pointer;
+}
+/* weatherDescription END */
+
+/* Change cover classes START */
+.Clear {
+  background-color: hsl(199, 95%, 30%);
+}
+
+.Clouds {
+  background-color: hsl(199, 42%, 69%);
+}
+
+.Rain {
+  background-color: hsl(198, 21%, 19%);
+}
+
+.Drizzle {
+  background-color: hsl(204, 8%, 48%);
+}
+
+.Mist {
+  background-color: hsla(151, 41%, 84%, 0.829);
+}
+
+.Haze {
+  background-color: rgb(230, 243, 196);
+}
+
+.Smoke {
+  background-color: rgb(148, 148, 148);
+}
+
+.Dust {
+  background-color: rgb(214, 155, 107);
+}
+
+.Fog {
+  background-color: hsl(199, 95%, 30%);
+}
+
+.Sand {
+  background-color: rgb(206, 170, 53);
+}
+
+.Ash {
+  background-color: rgb(155, 137, 109);
+}
+
+.Squall {
+  background-color: rgb(56, 69, 97);
+}
+
+.Tornado {
+  background-color: rgb(71, 74, 92);
+}
+
+.Snow {
+  background-color: #f4f5f4;
+}
+
+.Thunderstorm {
+  background-color: orange;
+}
+/* Change cover classes END */
+
+/* Media Queries */
+@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+  .weatherDescription .descriptionContainer {
+    font-size: small;
+  }
+  main {
+    width: 100%;
+  }
+  .displayImg .textContainer .temperature {
+    font-size: 1.5rem;
+  }
+
+  .displayImg .textContainer .city {
+    font-size: 1rem;
+  }
+
+  .displayImg .textContainer .date {
+    font-size: 0.4rem;
+    margin-top: 0;
+  }
+
+  .displayImg .textContainer .blockDisplay .sky {
+    font-size: 0.5rem;
+  }
+
+  .displayImg .textContainer .blockDisplay img {
+    margin-top: -1.7rem;
+    height: 60px;
+    width: 60px;
+  }
+
+  .displayImg .textContainer p {
+    margin: 2px;
+  }
+
+  .weatherDescription .descriptionContainer {
+    margin: 0.3rem;
+  }
+
+  .weatherDescription .descriptionContainer .searchBtn {
+    padding: 0.5rem;
+  }
+
+  .weatherDescription .descriptionContainer button i {
+    font-size: 0.6rem;
+  }
+
+  .weatherDescription .descriptionContainer input {
+    margin-top: 0.25rem;
+    height: 1rem;
+    font-size: 0.8rem;
+  }
+  .weatherDescription .descriptionContainer hr {
+    margin: 0.8rem 0;
+    padding: 0.5px;
+  }
+
+  .stateAnimation:after {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .weatherDescription .descriptionContainer button {
+    padding: 1.5rem;
+  }
+
+  .weatherDescription .descriptionContainer input {
+    margin-top: 0.3rem;
+    height: 2.1rem;
+  }
+}
